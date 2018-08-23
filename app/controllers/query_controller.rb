@@ -1,9 +1,14 @@
 class QueryController < ApplicationController
   def get
 
-  	result = Beast.all.order(:external_id)
+  	result_payload = Hash.new
 
-  	render plain: result.to_json
+  	query = Beast.all.order(:external_id)
+
+  	result_payload["found"] = query.count
+  	result_payload["hits"] = query
+
+  	render json: result_payload
 
   end
 end
