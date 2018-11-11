@@ -10,7 +10,7 @@ class QueryController < ApplicationController
   	if asc = "ASC"
   		comp = ">="
   	end
-
+    
     where = order_by+" "+comp+" "+start
 
     unless params["owner"].blank?
