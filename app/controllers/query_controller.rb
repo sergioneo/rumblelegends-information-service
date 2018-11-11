@@ -11,9 +11,15 @@ class QueryController < ApplicationController
   		comp = ">="
   	end
 
+    where = order_by+" "+comp+" "+start
+
+    unless params["owner"].blank?
+      where += " AND owner = '"+params["owner"]+"'"
+    end
+
   	result_payload = Hash.new
 
-  	query = Beast.where(order_by+" "+comp+" "+start)
+  	query = Beast.where(where)
   				 .limit(number_per_page)
   				 .offset(offset)
   				 .order(order_by+" "+asc)
