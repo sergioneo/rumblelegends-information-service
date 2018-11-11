@@ -13,10 +13,6 @@ class QueryController < ApplicationController
 
   	result_payload = Hash.new
 
-  	puts order_by
-  	puts comp
-  	puts start
-
   	query = Beast.where(order_by+" "+comp+" "+start)
   				 .limit(number_per_page)
   				 .offset(offset)

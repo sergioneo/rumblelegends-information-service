@@ -22,6 +22,7 @@ class BeastController < ApplicationController
       beast_record.generation = beast["generation"]
       beast_record.pedigree = beast["pedigree"]
       beast_record.element = beast["element"]
+      beast_record.owner = beast["owner"]
       beast_record.birthTime = Time.at(beast["birthTime"]).to_datetime
       beast_record.likes = 0
       beast_record.save
